@@ -39,6 +39,9 @@ ball.color("white")
 ball.penup()
 #This starts the paddle on the right
 ball.goto(0, 0)
+# How much the ball moves 
+ball.dx = 2
+ball.dy = -2
 
 #Function to move paddle a up
 def paddle_a_up(): 
@@ -85,3 +88,23 @@ win.onkeypress(paddle_b_down, "Down")
 # Main game loop 
 while True: 
   win.update()
+
+  # Move the ball 
+  ball.setx(ball.xcor() + ball.dx)
+  ball.sety(ball.ycor() + ball.dy)
+
+  # Border checking 
+  if ball.ycor() > 290:
+    ball.sety(290)
+    # This reverses the direction 
+    ball.dy *= -1
+
+  if ball.ycor() < -290:
+    ball.sety(-290)
+    # This reverses the direction 
+    ball.dy *= -1
+
+  if ball.xcor() > 390: 
+    # Ball gets put to center
+    ball.goto(0, 0)
+    ball.dx *= -1
