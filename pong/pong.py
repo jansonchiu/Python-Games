@@ -43,6 +43,14 @@ ball.goto(0, 0)
 ball.dx = 2
 ball.dy = -2
 
+# Pen 
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Player A: 0 Player B: 0", align="center", font=("Courier", 24, "normal"))
 #Function to move paddle a up
 def paddle_a_up(): 
   # find current y coordinate 
@@ -112,4 +120,13 @@ while True:
   if ball.xcor() < -390: 
     # Ball gets put to center
     ball.goto(0, 0)
+    ball.dx *= -1
+
+  # Paddle and ball collisions
+  if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() -40):
+    ball.setx(340)
+    ball.dx *= -1
+
+  if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() -40):
+    ball.setx(-340)
     ball.dx *= -1
