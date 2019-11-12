@@ -30,6 +30,14 @@ paddle_b.penup()
 #This starts the paddle on the right
 paddle_b.goto(350, 0)
 
+#Ball
+ball = turtle.Turtle()
+ball.speed(0)
+ball.shape("square")
+ball.color("white")
+ball.penup()
+#This starts the paddle on the right
+ball.goto(0, 0)
 
 # Main game loop 
 while True: 
