@@ -108,3 +108,8 @@ while True:
     # Ball gets put to center
     ball.goto(0, 0)
     ball.dx *= -1
+
+  if ball.xcor() < -390: 
+    # Ball gets put to center
+    ball.goto(0, 0)
+    ball.dx *= -1
