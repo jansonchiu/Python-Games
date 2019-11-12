@@ -16,7 +16,8 @@ paddle_a.color("white")
 # This stretches the width by 5 times 
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
 paddle_a.penup()
-#This starts the paddle on the left
+# This starts the paddle on the left
+# Since the center is 0,0
 paddle_a.goto(-350, 0)
 
 # Paddle B 
@@ -38,6 +39,48 @@ ball.color("white")
 ball.penup()
 #This starts the paddle on the right
 ball.goto(0, 0)
+
+#Function to move paddle a up
+def paddle_a_up(): 
+  # find current y coordinate 
+  y = paddle_a.ycor()
+  # This adds 20 pixels to y
+  y += 20 
+  paddle_a.sety(y)
+
+#Function to move paddle a down
+def paddle_a_down(): 
+  # find current y coordinate 
+  y = paddle_a.ycor()
+  # This adds 20 pixels to y
+  y -= 20 
+  paddle_a.sety(y)
+
+#Function to move paddle d up
+def paddle_b_up(): 
+  # find current y coordinate 
+  y = paddle_b.ycor()
+  # This adds 20 pixels to y
+  y += 20 
+  paddle_b.sety(y)
+
+#Function to move paddle b down
+def paddle_b_down(): 
+  # find current y coordinate 
+  y = paddle_b.ycor()
+  # This adds 20 pixels to y
+  y -= 20 
+  paddle_b.sety(y)
+
+
+# Keyboard Binding
+# This calls the y coordinate 
+win.listen()
+win.onkeypress(paddle_a_up, "w")
+win.onkeypress(paddle_a_down, "s")
+# This moves the paddle b up and down using up and down arrow keys
+win.onkeypress(paddle_b_up, "Up")
+win.onkeypress(paddle_b_down, "Down")
 
 # Main game loop 
 while True: 
